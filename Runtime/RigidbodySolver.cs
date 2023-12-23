@@ -7,7 +7,7 @@ namespace BoroPhysics
 {
   public class RigidbodySolver : MonoBehaviour
   {
-    [Range(60, 1000)] public int operations = 250;
+    [Range(60, 1000)] public int frequency = 250;
     public Rigidbody rb;
 
     private float lastCalledTime;
@@ -46,7 +46,7 @@ namespace BoroPhysics
 
     private void FixedUpdate()
     {
-      float maxDeltaTime = 1f / operations;
+      float maxDeltaTime = 1f / frequency;
       float newTime = Time.time;
       int steps = 0;
 
@@ -105,7 +105,7 @@ namespace BoroPhysics
       return newLinearVelocity;
     }
 
-    public Vector3 GetNewPosition(float delta)
+    private Vector3 GetNewPosition(float delta)
     {
       return rb.position + delta * newLinearVelocity;
     }
@@ -143,7 +143,7 @@ namespace BoroPhysics
     {
       return rb.velocity + delta * force / rb.mass;
     }
-    public Vector3 RotateX(Vector3 point, float angle)
+    private Vector3 RotateX(Vector3 point, float angle)
     {
       float newY = point.y * Mathf.Cos(angle) - point.z * Mathf.Sin(angle);
       float newZ = point.y * Mathf.Sin(angle) + point.z * Mathf.Cos(angle);
@@ -151,7 +151,7 @@ namespace BoroPhysics
       return new Vector3(point.x, newY, newZ);
     }
 
-    public Vector3 RotateY(Vector3 point, float angle)
+    private Vector3 RotateY(Vector3 point, float angle)
     {
       float newX = point.x * Mathf.Cos(angle) + point.z * Mathf.Sin(angle);
       float newZ = -point.x * Mathf.Sin(angle) + point.z * Mathf.Cos(angle);
@@ -159,7 +159,7 @@ namespace BoroPhysics
       return new Vector3(newX, point.y, newZ);
     }
 
-    public Vector3 RotateZ(Vector3 point, float angle)
+    private Vector3 RotateZ(Vector3 point, float angle)
     {
       float newX = point.x * Mathf.Cos(angle) - point.y * Mathf.Sin(angle);
       float newY = point.x * Mathf.Sin(angle) + point.y * Mathf.Cos(angle);
