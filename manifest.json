@@ -1,0 +1,17 @@
+{
+  "name": "com.borororo.physics",
+  "version": "0.0.1",
+  "description": "Set of physics functions to provide better physics stability.",
+  "displayName": "Boro Physics",
+  "author": {
+    "name": "Mateusz Borowiecki",
+    "email": "borowieckimateusz1@gmail.com"
+  },
+  "license": "CC-BY-4.0",
+  "keywords": [
+    "physics",
+    "solver",
+    "borororo",
+    "boro"
+  ]
+}
